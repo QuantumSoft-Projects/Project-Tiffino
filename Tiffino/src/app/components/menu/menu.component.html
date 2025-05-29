@@ -1,0 +1,33 @@
+
+<form [formGroup]="menuForm" (ngSubmit)="submitMenu()" enctype="multipart/form-data">
+    <input type="text" formControlName="itemName" placeholder="Item Name">
+    <input type="date" formControlName="startDate">
+    <input type="date" formControlName="endDate">
+    <input type="text" formControlName="cuisineType" placeholder="Cuisine Type">
+
+    <!-- Label for Region -->
+    <label for="region">Region</label>
+    <select id="region" formControlName="regionId">
+      <option *ngFor="let region of regions" [value]="region.id">{{ region.name }}</option>
+    </select>
+
+    <!-- Label for Category -->
+    <label for="category">Category</label>
+    <select id="category" formControlName="category">
+      <option value="VEG">Veg</option>
+      <option value="NON_VEG">Non-Veg</option>
+    </select>
+
+    <!-- Label for Restaurant -->
+    <label for="restaurant">Restaurant</label>
+    <select id="restaurant" formControlName="restaurantId">
+      <option *ngFor="let restaurant of restaurants" [value]="restaurant.id">{{ restaurant.name }}</option>
+    </select>
+
+    <input type="file" (change)="onImageUpload($event)">
+
+    <!-- Show Image Preview -->
+    <img *ngIf="imageUrl" [src]="imageUrl" alt="Image Preview" width="150">
+
+    <button type="submit">Add Menu</button>
+</form>

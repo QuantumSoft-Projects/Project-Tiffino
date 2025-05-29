@@ -1,0 +1,57 @@
+<div class="dashboard">
+  <!-- Navbar -->
+  <nav class="navbar">
+    <div class="profile-details">
+      <h2>Profile</h2>
+      <p><strong>Name:</strong> John Doe</p>
+      <p><strong>Number:</strong> 1234567890</p>
+      <p><strong>Email:</strong> </p>
+    </div>
+    <div class="edit-profile">
+      <i class="fas fa-user"></i>
+      <a href="#">Edit Profile</a>
+    </div>
+  </nav>
+
+  <div class="dashboard-content">
+    <!-- Sidebar -->
+    <aside class="sidebar">
+      <ul>
+        <li (click)="setActiveTab('orders')"><i class="fas fa-shopping-cart"></i> Orders</li>
+        <li (click)="setActiveTab('wishlist')"><i class="fas fa-heart"></i> Favourites</li>
+        <li (click)="setActiveTab('payments')"><i class="fas fa-wallet"></i> Payments</li>
+        <li (click)="setActiveTab('addresses')"><i class="fas fa-map-marker-alt"></i> Addresses</li>
+        <li (click)="setActiveTab('customerSupport')"><i class="fas fa-map-marker-alt"></i> Customers Support</li>
+        <li (click)="setActiveTab('settings')"><i class="fas fa-cog"></i> Settings</li>
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="content">
+      <div *ngIf="activeTab === 'profile'">
+        <h3>Profile Information</h3>
+        <p><strong>Name:</strong> John Doe</p>
+        <p><strong>Email:</strong> </p>
+      </div>
+
+      <div *ngIf="activeTab === 'wishlist'">
+        <h3>Your Wishlist</h3>
+        <div class="wishlist-container">
+          <div class="wishlist-card" *ngFor="let item of wishlistItems">
+            <img [src]="item.imageUrl" alt="{{ item.name }}">
+            <div class="wishlist-content">
+              <h4>{{ item.name }}</h4>
+              <p>₹{{ item.price }}</p>
+            </div>
+            <div class="wishlist-actions">
+              <button (click)="moveToCart(item)" class="move-btn">Move to Cart</button>
+              <button (click)="removeFromWishlist(item.id)" class="remove-btn">Remove</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <app-customer-support *ngIf="activeTab === 'customerSupport'"></app-customer-support>
+
+    </main>
+  </div>
+</div>

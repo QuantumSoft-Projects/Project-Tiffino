@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-lg fixed-top" [ngClass]="{ 'scrolled': isScrolled }">
+    <div class="container">
+      <a class="navbar-brand" (click)="navigateTo('/')">
+        <img src="assets/img/tiffino_bg.png" alt="Tiffino" height="80" />
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" (click)="navigateTo('/')">Home</a></li>
+          <li class="nav-item"><a class="nav-link" (click)="navigateTo('/restaurants')">Regional-Cuisines</a></li>
+
+          <li class="nav-item">
+            <a class="nav-link cart-icon" (click)="navigateTo('/wishlist')">
+              <i class="fas fa-heart text-xl text-red-500"></i>
+              <span class="cart-badge">{{ wishlistItemCount }}</span>
+            </a>
+          </li>
+  
+          <li class="nav-item">
+            <a class="nav-link cart-icon" (click)="navigateTo('/cart')">
+              <i class="fas fa-shopping-cart"></i>
+              <span class="cart-badge">{{ cartItemCount }}</span>
+            </a>
+          </li>
+  
+          <!-- ✅ Profile Dropdown with Email -->
+          <li class="nav-item dropdown d-flex align-items-center">
+            <a class="nav-link dropdown-toggle d-flex align-items-center" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <i class="fas fa-user me-2"></i>
+              <span *ngIf="userEmail">{{ userEmail }}</span> <!-- User Email -->
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+              <li><a class="dropdown-item" (click)="navigateTo('/profile-dashboard')">View Profile</a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('/orders')">My Orders</a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('/subscription')">My Subscription</a></li>
+              <li><a class="dropdown-item" (click)="navigateTo('/settings')">Settings</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item text-danger" (click)="logout()">Logout</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
+  
+  <!-- ✅ Add a wrapper for the content below the navbar -->
+<div class="content-below-navbar">
+  <app-hero></app-hero>
+  <app-restaurants></app-restaurants>
+    <app-subscription></app-subscription>
+    <app-regional-cuisines></app-regional-cuisines>
+    <app-membership></app-membership>
+    <app-city-list></app-city-list>
+    <app-footer></app-footer>
+  </div>
+  

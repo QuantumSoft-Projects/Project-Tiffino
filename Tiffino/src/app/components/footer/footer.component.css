@@ -1,0 +1,92 @@
+/* General Footer Styling */
+/* General Footer Styling */
+.footer {
+  background-color: transparent;
+  /* background-image: url('/assets/img/footer.jpg'); */
+  background: linear-gradient(to right, #9f9797,#c8c8c8);
+
+  /* Correct path */
+  background-size: cover;
+  background-position: center center;
+  color: #000000;
+  /* Soft beige text */
+  padding: 50px 0;
+  font-size: 1.2rem;
+  position: relative;
+  /* So that any pseudo-element positioning works */
+}
+
+
+/* Footer Heading */
+.footer h5 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: rgb(66, 44, 2);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+}
+
+/* Footer Links */
+.footer-links {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links li {
+  margin-bottom: 8px;
+}
+
+.footer-link {
+  color: #212121;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-link:hover {
+  color: #d2f644;
+  /* Soft highlight */
+  text-decoration: underline;
+}
+
+/* Contact Info */
+.footer-contact {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-contact li {
+  margin-bottom: 8px;
+}
+
+.footer-contact i {
+  color: #000000;
+  /* Accent color */
+  margin-right: 8px;
+}
+
+/* Social Icons */
+.footer-social {
+  margin-top: 10px;
+}
+
+.footer-social a {
+  display: inline-block;
+  font-size: 1.8rem;
+  color: #000000;
+  margin-right: 15px;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-social a:hover {
+  color: #ff0000;
+  /* Gold hover effect */
+}
+
+.footer-bottom {
+  text-align: center;
+  font-size: 1.20rem;
+  margin-top: 20px;
+  padding-top: 10px;
+  color: #000000;
+  /* Lighter text for a subtle look */
+}

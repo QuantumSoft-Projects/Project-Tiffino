@@ -1,0 +1,142 @@
+/* Navbar-style container for dropdowns */
+.navbar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  padding: 15px;
+  background-color: hsl(0, 0%, 97%);
+  border-bottom: 2px solid orange;
+  flex-wrap: wrap;
+}
+
+/* Dropdown Styling */
+select {
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid rgb(248, 219, 165);
+  background-color: orange;
+  cursor: pointer;
+  min-width: 200px;
+}
+
+select:disabled {
+  background-color: #ddd;
+  cursor: not-allowed;
+}
+
+/* Food Cards Container */
+.food-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+/* Individual Food Card */
+.food-card {
+  width: 220px;
+  padding: 15px;
+  border: 2px solid orange;
+  border-radius: 10px;
+  text-align: center;
+  background: white;
+  box-shadow: 4px 4px 15px rgba(255, 140, 0, 0.3);
+  transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+  position: relative;
+}
+
+.food-card:hover {
+  transform: scale(1.05);
+  box-shadow: 6px 6px 20px rgba(255, 140, 0, 0.5);
+}
+
+/* Food Image */
+.food-image {
+  width: 100%;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid white;
+}
+
+/* Food Titles */
+h3 {
+  margin-top: 20px;
+  color: rgb(0, 0, 0);
+  text-align: center;
+}
+
+h4 {
+  color: #000000;
+  margin-top: 10px;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+/* Food Details */
+p {
+  color: #070505;
+  font-size: 14px;
+  margin: 5px 0;
+}
+
+/* Cart and Wishlist Buttons inside the Food Card */
+.button-container {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 10px;
+}
+
+.cart-btn, .wishlist-btn {
+  background: none;
+  border: none;
+  font-size: 20px;
+  cursor: pointer;
+  padding: 5px;
+  border-radius: 5px;
+  transition: color 0.3s ease-in-out;
+}
+
+.cart-btn {
+  color: orange;
+}
+
+.cart-btn:hover {
+  color: darkorange;
+}
+
+.wishlist-btn {
+  color: red;
+}
+
+.wishlist-btn:hover {
+  color: darkred;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .navbar {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .food-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  select {
+    min-width: 150px;
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .food-card {
+    width: 90%;
+  }
+}

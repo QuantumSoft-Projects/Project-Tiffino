@@ -1,0 +1,30 @@
+
+<div class="meal-availability-container">
+    <h2>Set Meal Availability</h2>
+    
+    <form (ngSubmit)="submitMealAvailability()">
+      <!-- Availability Date -->
+      <label for="availabilityDate">Availability Date:</label>
+      <input type="date" id="availabilityDate" [(ngModel)]="mealAvailabilityData.availabilityDate" name="availabilityDate" required>
+  
+      <!-- Meal Plan ID -->
+      <label for="mealPlan">Meal Plan ID:</label>
+      <input type="number" id="mealPlan" [(ngModel)]="mealAvailabilityData.mealPlan.id" name="mealPlan" required>
+  
+      <!-- Region ID -->
+      <label for="region">Region ID:</label>
+      <input type="number" id="region" [(ngModel)]="mealAvailabilityData.region.id" name="region" required>
+  
+      <!-- Availability Toggle -->
+      <label>
+        <input type="checkbox" [(ngModel)]="mealAvailabilityData.isAvailable" name="isAvailable">
+        Available
+      </label>
+      
+      
+  
+      <!-- Submit Button -->
+      <button type="submit">Submit</button>
+    </form>
+  </div>
+  

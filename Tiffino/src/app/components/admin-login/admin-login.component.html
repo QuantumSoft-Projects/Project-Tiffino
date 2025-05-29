@@ -1,0 +1,77 @@
+<body style="background-color: chartreuse;">
+ 
+ 
+ 
+  <div class="login-container">
+    <!-- Close Button -->
+   <!-- Close Button -->
+  <span class="close-btn" (click)="goBack()">×</span>
+   
+    <h2 *ngIf="step === 1">Admin Login</h2>
+    <h2 *ngIf="step === 2">Enter OTP</h2>
+    <h2 *ngIf="step === 3">Reset Password</h2>
+   
+    <!-- ✅ Step 1: Login Form -->
+    <form *ngIf="step === 1" (submit)="loginAdmin()">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" required />
+      </div>
+   
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+   
+      <button type="submit" class="login-btn">Login</button>
+   
+      <div class="forgot-password">
+        <a href="#" (click)="$event.preventDefault(); step = 2;">Forgot Password?</a>
+      </div>
+    </form>
+   
+    <!-- ✅ Step 2: Enter Email for OTP -->
+    <form *ngIf="step === 2">
+      <div class="input-group">
+        <label for="email">Enter your email</label>
+        <input type="email" id="email" [(ngModel)]="email" name="email" required />
+      </div>
+   
+      <button type="button" (click)="forgotPassword()" class="login-btn">Send OTP</button>
+   
+      <div class="back-to-login">
+        <a href="#" (click)="$event.preventDefault(); step = 1;">Back to Login</a>
+      </div>
+    </form>
+   
+    <!-- ✅ Step 3: Verify OTP & Reset Password -->
+    <form *ngIf="step === 3">
+      <div class="input-group">
+        <label for="otp">Enter OTP</label>
+        <input type="text" id="otp" [(ngModel)]="otp" name="otp" required />
+      </div>
+   
+      <div class="input-group">
+        <label for="newPassword">New Password</label>
+        <input type="password" id="newPassword" [(ngModel)]="newPassword" name="newPassword" required />
+      </div>
+   
+      <div class="input-group">
+        <label for="confirmPassword">Confirm Password</label>
+        <input type="password" id="confirmPassword" [(ngModel)]="confirmPassword" name="confirmPassword" required />
+      </div>
+   
+      <button type="button" (click)="resetPassword()" class="login-btn">Reset Password</button>
+   
+      <div class="back-to-login">
+        <a href="#" (click)="$event.preventDefault(); step = 1;">Back to Login</a>
+      </div>
+    </form>
+   
+    <!-- ✅ Success & Error Messages -->
+    <p *ngIf="errorMessage" class="error-message">{{ errorMessage }}</p>
+    <p *ngIf="successMessage" class="success-message">{{ successMessage }}</p>
+  </div>
+   
+  </body>
+   

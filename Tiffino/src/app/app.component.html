@@ -1,0 +1,21 @@
+
+<!-- Show hero section only on homepage -->
+<!-- <app-hero *ngIf="isHomePage"></app-hero> -->
+
+<!-- Show other components only on specific pages -->
+<router-outlet></router-outlet>
+
+<!-- Show these only if not on login, signup, or contact pages -->
+<ng-container *ngIf="isHomePage">
+    <app-header></app-header>
+
+    
+    <app-restaurants></app-restaurants>
+
+    <!-- <app-city-list></app-city-list> -->
+
+    <app-regional-cuisines></app-regional-cuisines>
+    <!-- <app-food-card></app-food-card> -->
+    <app-subscription></app-subscription>
+    <app-footer></app-footer>
+</ng-container>

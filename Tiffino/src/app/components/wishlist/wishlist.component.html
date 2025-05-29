@@ -1,0 +1,22 @@
+<div class="wishlist-container">
+  <h2 class="wishlist-title">💖 My Wishlist</h2>
+
+  <div *ngIf="wishlist.length > 0; else emptyWishlist" class="wishlist-grid">
+    <div *ngFor="let item of wishlist" class="wishlist-card">
+      <img [src]="item.image" class="wishlist-image" alt="Food Item">
+      
+      <div class="wishlist-details">
+        <h3>{{ item.name }}</h3>
+        <p class="cuisine">🍽️ {{ item.cuisine.join(', ') }}</p>
+        <p class="rating">⭐ {{ item.rating }} | 🚚 {{ item.deliveryTime }}</p>
+        <p class="price">₹{{ item.price }}</p>
+
+        <button (click)="removeFromWishlist(item.id)" class="remove-btn">❌ Remove</button>
+      </div>
+    </div>
+  </div>
+
+  <ng-template #emptyWishlist>
+    <p class="empty-text">😞 No items in your wishlist yet.</p>
+  </ng-template>
+</div>

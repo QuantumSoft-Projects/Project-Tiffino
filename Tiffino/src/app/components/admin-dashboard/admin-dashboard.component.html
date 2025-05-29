@@ -1,0 +1,616 @@
+<div class="dashboard">
+  <!-- Navbar -->
+ 
+  <div class="dashboard-content">
+    <!-- Sidebar -->
+    <aside class="sidebar" [class.closed]="!isSidebarOpen">
+      <ul>
+        <li (click)="setActiveTab('dashboard')">
+          <i class="fas fa-tachometer-alt"></i> Admin Dashboard
+        </li>
+        <li (click)="setActiveTab('orders')">
+          <i class="fas fa-list"></i> Orders List
+        </li>
+        <li (click)="setActiveTab('customers')">
+          <i class="fas fa-users"></i> Customers
+        </li>
+        <li (click)="setActiveTab('analytics')">
+          <i class="fas fa-chart-line"></i> Analytics
+        </li>
+        <li (click)="setActiveTab('reviews')">
+          <i class="fas fa-star"></i> Reviews
+        </li>
+        <li (click)="setActiveTab('foods')">
+          <i class="fas fa-hamburger"></i> Menu
+        </li>
+       
+        <li (click)="setActiveTab('chat')">
+          <i class="fas fa-comments"></i> Chat
+        </li>
+        <li (click)="setActiveTab('wallet')">
+          <i class="fas fa-wallet"></i> Wallet
+        </li>
+        <li (click)="setActiveTab('settings')">
+          <i class="fas fa-cog"></i> Settings
+        </li>
+ 
+        <!-- Logout Button -->
+        <li (click)="logout()" class="logout">
+          <i class="fas fa-sign-out-alt"></i> Logout
+        </li>
+      </ul>
+    </aside>
+ 
+    <!-- Main Content -->
+    <main class="content">
+      <header>
+        <button id="toggleSidebar" (click)="toggleSidebar()"
+            style="background-color: orange; color: white; border: none; padding: 10px 15px; border-radius: 5px;">
+            <i class="fas fa-bars"></i>
+        </button>
+   
+        <div class="search-bar">
+            <input type="text" placeholder="Search...">
+            <button><i class="fas fa-search"></i></button>
+        </div>
+   
+        <div class="nav-icons">
+          <img src="assets/user-profile.jpg" alt="User"
+          (click)="toggleSettingsMenu()"
+          class="user-icon">
+        </div>
+      </header>
+   
+      <div *ngIf="activeTab === 'dashboard'">
+ 
+        <div class="container111">
+            <div class="card">
+                <h3>Orders Trend</h3>
+                <canvas id="ordersChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Revenue Breakdown</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Popular Food Items</h3>
+                <canvas id="foodChart"></canvas>
+            </div>
+            <div class="card">
+                <h3>Delivery Performance</h3>
+                <canvas id="deliveryChart"></canvas>
+            </div>
+       
+ 
+        <div class="card">
+          <h3>Customer Ratings</h3>
+         
+          <div class="rating">
+              <div class="rating-row">
+                  <span>⭐ 5</span>
+                  <progress value="70" max="100"></progress> <span>70%</span>
+              </div>
+              <div class="rating-row">
+                  <span>⭐ 4</span>
+                  <progress value="15" max="100"></progress> <span>15%</span>
+              </div>
+              <div class="rating-row">
+                  <span>⭐ 3</span>
+                  <progress value="8" max="100"></progress> <span>8%</span>
+              </div>
+              <div class="rating-row">
+                  <span>⭐ 2</span>
+                  <progress value="5" max="100"></progress> <span>5%</span>
+              </div>
+              <div class="rating-row">
+                  <span>⭐ 1</span>
+                  <progress value="2" max="100"></progress> <span>2%</span>
+              </div>
+          </div>
+        </div>
+          <canvas id="ratingChart"></canvas>
+      </div>
+     
+ 
+      </div>
+      <div *ngIf="activeTab === 'orders'">
+     
+ 
+        <div class="order-list-container1">
+          <h2>Customer Order List</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Order ID</th>
+                <th>Customer Name</th>
+                <th>Email</th>
+                <th>Address</th>
+                <th>Order Item</th>
+                <th>Quantity</th>
+                <th>Order Date</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>001</td>
+                <td>Amit Kumar</td>
+                <td>amitexample.com</td>
+                <td>123, MG Road, Mumbai</td>
+                <td>Item 1</td>
+                <td>2</td>
+                <td>2025-03-05</td>
+                <td>Delivered</td>
+              </tr>
+              <tr>
+                <td>002</td>
+                <td>Priya Singh</td>
+                <td>priyaexample.com</td>
+                <td>45, Park Street, Kolkata</td>
+                <td>Item 2</td>
+                <td>1</td>
+                <td>2025-03-04</td>
+                <td>Pending</td>
+              </tr>
+              <tr>
+                <td>003</td>
+                <td>Rahul Sharma</td>
+                <td>rahulexample.com</td>
+                <td>89, Nehru Road, Delhi</td>
+                <td>Item 3</td>
+                <td>3</td>
+                <td>2025-03-03</td>
+                <td>Shipped</td>
+              </tr>
+              <tr>
+                <td>004</td>
+                <td>Sunita Verma</td>
+                <td>sunitaexample.com</td>
+                <td>12, Nehru Street, Jaipur</td>
+                <td>Item 1</td>
+                <td>4</td>
+                <td>2025-03-02</td>
+                <td>Delivered</td>
+              </tr>
+              <tr>
+                <td>005</td>
+                <td>Vikram Rao</td>
+                <td>vikramexample.com</td>
+                <td>78, Gandhi Road, Pune</td>
+                <td>Item 2</td>
+                <td>2</td>
+                <td>2025-03-01</td>
+                <td>Cancelled</td>
+              </tr>
+              <tr>
+                <td>006</td>
+                <td>Anita Desai</td>
+                <td>anitaexample.com</td>
+                <td>56, Station Road, Bangalore</td>
+                <td>Item 3</td>
+                <td>5</td>
+                <td>2025-02-28</td>
+                <td>Shipped</td>
+              </tr>
+              <tr>
+                <td>007</td>
+                <td>Rohit Mehta</td>
+                <td>rohitxample.com</td>
+                <td>33, Residency Road, Chennai</td>
+                <td>Item 1</td>
+                <td>1</td>
+                <td>2025-02-27</td>
+                <td>Delivered</td>
+              </tr>
+              <tr>
+                <td>008</td>
+                <td>Kavita Joshi</td>
+                <td>kavitaexample.com</td>
+                <td>101, Park Avenue, Hyderabad</td>
+                <td>Item 2</td>
+                <td>3</td>
+                <td>2025-02-26</td>
+                <td>Pending</td>
+              </tr>
+              <tr>
+                <td>009</td>
+                <td>Deepak Gupta</td>
+                <td>deepakexample.com</td>
+                <td>204, Lake View, Chandigarh</td>
+                <td>Item 3</td>
+                <td>2</td>
+                <td>2025-02-25</td>
+                <td>Shipped</td>
+              </tr>
+              <tr>
+                <td>010</td>
+                <td>Neha Patel</td>
+                <td>nehaexample.com</td>
+                <td>88, Seaside, Goa</td>
+                <td>Item 1</td>
+                <td>4</td>
+                <td>2025-02-24</td>
+                <td>Delivered</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+       
+ 
+ 
+ 
+ 
+ 
+ 
+        <!-- <app-order-list></app-order-list> -->
+      </div>
+ 
+ 
+ 
+ 
+     
+      <div *ngIf="activeTab === 'customers'">
+       
+        <div class="container1">
+          <h2> Customers</h2>
+          <table>
+            <thead>
+              <tr>
+                <th>Rank</th>
+                <th>Customer ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Total Orders</th>
+                <th>Total Spent</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>1</td>
+                <td>C001</td>
+                <td>Amit Kumar</td>
+                <td>amitexample.com</td>
+                <td>25</td>
+                <td>$3,500</td>
+              </tr>
+              <tr>
+                <td>2</td>
+                <td>C002</td>
+                <td>Priya Singh</td>
+                <td>priyaexample.com</td>
+                <td>22</td>
+                <td>$3,200</td>
+              </tr>
+              <tr>
+                <td>3</td>
+                <td>C003</td>
+                <td>Rahul Sharma</td>
+                <td>rahulexample.com</td>
+                <td>20</td>
+                <td>$3,000</td>
+              </tr>
+              <tr>
+                <td>4</td>
+                <td>C004</td>
+                <td>Sunita Verma</td>
+                <td>sunitaexample.com</td>
+                <td>18</td>
+                <td>$2,800</td>
+              </tr>
+              <tr>
+                <td>5</td>
+                <td>C005</td>
+                <td>Vikram Rao</td>
+                <td>vikramexample.com</td>
+                <td>17</td>
+                <td>$2,700</td>
+              </tr>
+              <tr>
+                <td>6</td>
+                <td>C006</td>
+                <td>Anita Desai</td>
+                <td>anitaample.com</td>
+                <td>15</td>
+                <td>$2,500</td>
+              </tr>
+              <tr>
+                <td>7</td>
+                <td>C007</td>
+                <td>Rohit Mehta</td>
+                <td>rohitexample.com</td>
+                <td>14</td>
+                <td>$2,300</td>
+              </tr>
+              <tr>
+                <td>8</td>
+                <td>C008</td>
+                <td>Kavita Joshi</td>
+                <td>kavitaexample.com</td>
+                <td>13</td>
+                <td>$2,200</td>
+              </tr>
+              <tr>
+                <td>9</td>
+                <td>C009</td>
+                <td>Deepak Gupta</td>
+                <td>deepakexample.com</td>
+                <td>12</td>
+                <td>$2,000</td>
+              </tr>
+              <tr>
+                <td>10</td>
+                <td>C010</td>
+                <td>Neha Patel</td>
+                <td>nehaexample.com</td>
+                <td>10</td>
+                <td>$1,800</td>
+              </tr>
+            </tbody>
+          </table>
+      </div>
+     
+ 
+       
+      </div>
+      <div *ngIf="activeTab === 'analytics'">
+        <div class="analytics-container">
+          <h1>Analytics Dashboard</h1>
+          <div class="stats">
+              <div class="stat-card">
+                  <h2>Total Orders</h2>
+                  <p id="totalOrders">1,245</p>
+              </div>
+              <div class="stat-card">
+                  <h2>Total Revenue</h2>
+                  <p id="totalRevenue">$12,500</p>
+              </div>
+              <div class="stat-card">
+                  <h2>Popular Item</h2>
+                  <p id="popularItem">Margherita Pizza</p>
+              </div>
+            </div>
+            <div class="chart-container">
+                <canvas id="orderChart"></canvas>
+            </div>
+        </div>
+        </div>
+        <div *ngIf="activeTab === 'reviews'">
+          <div class="container">
+     
+           
+           
+   
+       
+            <div class="reviews">
+              <!-- Review Card 1 -->
+              <div class="review-card">
+                <div class="review-header">
+                  <img src="https://via.placeholder.com/50" alt="User Photo">
+                  <h3>John Doe</h3>
+                </div>
+                <div class="stars">
+                  ★★★★☆
+                </div>
+                <div class="review-content">
+                  The food was delicious and delivered hot! Excellent service and speedy delivery. I highly recommend ordering from here.
+                </div>
+                <div class="review-date">
+                  15 Jan 2025
+                </div>
+              </div>
+              <!-- Review Card 2 -->
+              <div class="review-card">
+                <div class="review-header">
+                  <img src="https://via.placeholder.com/50" alt="User Photo">
+                  <h3>Jane Smith</h3>
+                </div>
+                <div class="stars">
+                  ★★★★★
+                </div>
+                <div class="review-content">
+                  Amazing experience! The flavors were perfect and the portion sizes were generous. Will definitely order again.
+                </div>
+                <div class="review-date">
+                  12 Jan 2025
+                </div>
+              </div>
+              <!-- Review Card 3 -->
+              <div class="review-card">
+                <div class="review-header">
+                  <img src="https://via.placeholder.com/50" alt="User Photo">
+                  <h3>Ali Khan</h3>
+                </div>
+                <div class="stars">
+                  ★★★★☆
+                </div>
+                <div class="review-content">
+                  Great variety of dishes and excellent customer service. The ordering process was simple and hassle-free.
+                </div>
+                <div class="review-date">
+                  10 Jan 2025
+                </div>
+              </div>
+            </div>
+       
+            <a href="#" class="leave-review">Leave a Review</a>
+          </div>
+       
+        </div>
+        <div *ngIf="activeTab === 'foods'">
+          <div class="container">
+            <h1>Foods Menu</h1>
+            <div class="grid">
+              <!-- Card 1: Margherita Pizza -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Margherita+Pizza" alt="Margherita Pizza">
+                <div class="card-content">
+                  <h2 class="card-title">Margherita Pizza</h2>
+                  <p class="card-description">Classic pizza with tomato sauce, fresh mozzarella, and basil.</p>
+                  <p class="card-price">$9.99</p>
+                </div>
+              </div>
+              <!-- Card 2: Pepperoni Pizza -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Pepperoni+Pizza" alt="Pepperoni Pizza">
+                <div class="card-content">
+                  <h2 class="card-title">Pepperoni Pizza</h2>
+                  <p class="card-description">Loaded with spicy pepperoni, mozzarella, and tomato sauce.</p>
+                  <p class="card-price">$11.99</p>
+                </div>
+              </div>
+              <!-- Card 3: Cheeseburger -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Cheeseburger" alt="Cheeseburger">
+                <div class="card-content">
+                  <h2 class="card-title">Cheeseburger</h2>
+                  <p class="card-description">Juicy beef patty with cheddar cheese, lettuce, and tomato.</p>
+                  <p class="card-price">$8.49</p>
+                </div>
+              </div>
+              <!-- Card 4: Veggie Burger -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Veggie+Burger" alt="Veggie Burger">
+                <div class="card-content">
+                  <h2 class="card-title">Veggie Burger</h2>
+                  <p class="card-description">Delicious plant-based patty with fresh greens and special sauce.</p>
+                  <p class="card-price">$7.99</p>
+                </div>
+              </div>
+              <!-- Card 5: Grilled Chicken Sandwich -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Chicken+Sandwich" alt="Grilled Chicken Sandwich">
+                <div class="card-content">
+                  <h2 class="card-title">Grilled Chicken Sandwich</h2>
+                  <p class="card-description">Tender grilled chicken breast with lettuce and mayo.</p>
+                  <p class="card-price">$10.49</p>
+                </div>
+              </div>
+              <!-- Card 6: Caesar Salad -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Caesar+Salad" alt="Caesar Salad">
+                <div class="card-content">
+                  <h2 class="card-title">Caesar Salad</h2>
+                  <p class="card-description">Fresh romaine lettuce tossed with Caesar dressing, croutons, and Parmesan.</p>
+                  <p class="card-price">$6.99</p>
+                </div>
+              </div>
+              <!-- Card 7: Sushi Rolls -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Sushi+Rolls" alt="Sushi Rolls">
+                <div class="card-content">
+                  <h2 class="card-title">Sushi Rolls</h2>
+                  <p class="card-description">Assorted sushi rolls with fresh fish and vegetables.</p>
+                  <p class="card-price">$12.99</p>
+                </div>
+              </div>
+              <!-- Card 8: Ice Cream Sundae -->
+              <div class="card">
+                <img src="https://via.placeholder.com/250x150?text=Ice+Cream+Sundae" alt="Ice Cream Sundae">
+                <div class="card-content">
+                  <h2 class="card-title">Ice Cream Sundae</h2>
+                  <p class="card-description">Creamy ice cream topped with your favorite syrup and nuts.</p>
+                  <p class="card-price">$4.99</p>
+                </div>
+              </div>
+            </div>
+          </div>
+       
+        </div>
+        <div *ngIf="activeTab === 'calendar'">
+          <h3>Calendar</h3>
+          <!-- <app-calendar></app-calendar> -->
+        </div>
+        <div *ngIf="activeTab === 'chat'">
+          <div class="chat-container">
+            <div class="chat-header">
+              Customer Chat Support
+            </div>
+            <div class="chat-messages" id="chat-messages">
+              <div class="chat-message agent">
+                <div class="chat-bubble">
+                  Hello! How can I help you today?
+                </div>
+              </div>
+              <div class="chat-message customer">
+                <div class="chat-bubble">
+                  Hi, I have a question about my order.
+                </div>
+              </div>
+              <!-- Additional messages can appear here -->
+            </div>
+            <div class="chat-input">
+              <textarea id="chat-input" rows="2" placeholder="Type your message..."></textarea>
+              <button id="send-button">Send</button>
+            </div>
+          </div>
+         
+          <script>
+            // Simple JavaScript to add new customer messages to the chat window
+            document.getElementById('send-button').addEventListener('click', function() {
+              var inputField = document.getElementById('chat-input');
+              var messageText = inputField.value.trim();
+              if (messageText !== "") {
+                var messageDiv = document.createElement('div');
+                messageDiv.className = 'chat-message customer';
+                var bubbleDiv = document.createElement('div');
+                bubbleDiv.className = 'chat-bubble';
+                bubbleDiv.textContent = messageText;
+                messageDiv.appendChild(bubbleDiv);
+                document.getElementById('chat-messages').appendChild(messageDiv);
+                inputField.value = "";
+                // Scroll to the bottom of the chat messages
+                document.getElementById('chat-messages').scrollTop = document.getElementById('chat-messages').scrollHeight;
+              }
+            });
+          </script>
+       
+        </div>
+        <div *ngIf="activeTab === 'wallet'">
+          <div class="wallet-container1">
+   
+            <div class="balance1"></div>
+            <div class="transactions1">
+                <div>Daily: ₹500</div>
+                <div>Weekly: ₹3,500</div>
+                <div>Monthly: ₹15,000</div>
+                <div>Yearly: ₹1,80,000</div>
+            </div>
+        </div>
+          <!-- <app-wallet></app-wallet> -->
+        </div>
+        <div *ngIf="activeTab === 'settings'">
+          <div class="settings-container">
+            <h2>Settings</h2>
+   
+            <div class="setting-option">
+                <label for="name">Edit Name:</label>
+                <input type="text" id="name" placeholder="Enter your name">
+                <button class="save-btn">Save</button>
+            </div>
+   
+            <div class="setting-option">
+                <label for="email">Edit Email:</label>
+                <input type="email" id="email" placeholder="Enter your email">
+                <button class="save-btn">Save</button>
+            </div>
+   
+            <div class="setting-option">
+                <label for="password">Change Password:</label>
+                <input type="password" id="password" placeholder="New password">
+                <button class="save-btn">Save</button>
+            </div>
+        </div>
+          <!-- <app-settings></app-settings> -->
+        </div>
+      </main>
+    </div>
+  </div>
+   
+   
+   
+   
+   
+   
+   
+   
+   

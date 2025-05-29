@@ -1,0 +1,94 @@
+/* General Styling */
+body {
+  background-color: #f8f9fa;
+  font-family: 'Poppins', sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  margin: auto;
+}
+
+h2 {
+  color: #333;
+  font-weight: 600;
+}
+
+/* Card Styling */
+.card {
+  border: none;
+  border-radius: 10px;
+  background: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Input Styling */
+.form-control {
+  border-radius: 5px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+.form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Button Styling */
+.btn {
+  font-weight: 500;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all 0.3s;
+}
+
+.btn-primary {
+  background: #007bff;
+  border: none;
+}
+
+.btn-primary:hover {
+  background: #0056b3;
+}
+
+.btn-warning {
+  background: #ff9800;
+  border: none;
+}
+
+.btn-warning:hover {
+  background: #e68900;
+}
+
+.btn-danger {
+  background: #dc3545;
+  border: none;
+}
+
+.btn-danger:hover {
+  background: #c82333;
+}
+
+/* Link Styling */
+a {
+  text-decoration: none;
+  color: #007bff;
+  transition: color 0.3s;
+}
+
+a:hover {
+  color: #0056b3;
+}
+
+/* Responsive Design */
+@media (max-width: 480px) {
+  .container {
+    padding: 20px;
+  }
+}

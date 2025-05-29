@@ -1,0 +1,25 @@
+<body>
+ 
+ 
+  <div class="login-container">
+    <h2>Super Admin Login</h2>
+    <!-- Close Button -->
+    <span class="close-btn" (click)="goBack()">×</span>
+   
+    <form (submit)="loginSuperAdmin()">
+      <div class="input-group">
+        <label for="username">Username</label>
+        <input type="text" id="username" [(ngModel)]="username" name="username" required />
+      </div>
+   
+      <div class="input-group">
+        <label for="password">Password</label>
+        <input type="password" id="password" [(ngModel)]="password" name="password" required />
+      </div>
+   
+      <button type="submit" class="login-btn">Login</button>
+    </form>
+  </div>
+   
+  </body>
+   

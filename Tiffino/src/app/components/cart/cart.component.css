@@ -1,0 +1,125 @@
+/* Cart Container */
+.cart-container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #fff3e0;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+ 
+/* Cart Title */
+.cart-title {
+  text-align: center;
+  color: #e65100;
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 20px;
+}
+ 
+/* Cart Items */
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #ffcc80;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 8px;
+}
+ 
+.item-details {
+  display: flex;
+  align-items: center;
+}
+ 
+.item-image {
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  margin-right: 10px;
+}
+ 
+.item-info h4 {
+  margin: 0;
+  color: #e65100;
+}
+ 
+/* Quantity Controls */
+.quantity-controls {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+ 
+.qty-btn {
+  background: #ff9800;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+ 
+.qty-btn:hover {
+  background: #e65100;
+}
+ 
+.qty {
+  font-size: 16px;
+  font-weight: bold;
+}
+ 
+/* Remove Button */
+.remove-btn {
+  background: none;
+  border: none;
+  color: red;
+  font-size: 18px;
+  cursor: pointer;
+}
+ 
+/* Coupon Section */
+.coupon-container {
+  display: flex;
+  margin-top: 15px;
+  gap: 10px;
+}
+ 
+.coupon-input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ff9800;
+  border-radius: 5px;
+}
+ 
+.apply-btn {
+  background: #ff9800;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  border-radius: 5px;
+}
+ 
+.apply-btn:hover {
+  background: #e65100;
+}
+ 
+/* Checkout Button */
+.checkout-btn {
+  background: #ff5722;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 18px;
+}
+ 
+.checkout-btn:hover {
+  background: #d84315;
+}
+ 
+ 

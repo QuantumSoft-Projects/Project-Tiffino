@@ -1,0 +1,69 @@
+
+<div class="ticket-container">
+    <h2>📦 Customer Support - Order Issues</h2>
+  
+    <!-- Success & Error Messages -->
+    <div *ngIf="successMessage" class="success-message">{{ successMessage }}</div>
+    <div *ngIf="errorMessage" class="error-message">{{ errorMessage }}</div>
+  
+    <!-- Create Ticket Form -->
+    <form (ngSubmit)="submitTicket()" class="ticket-form">
+      <h3>Create a New Ticket</h3>
+    
+      <div class="form-group">
+        <label>Customer Name:</label>
+        <input type="text" [(ngModel)]="newTicket.customerName" name="customerName" required />
+      </div>
+    
+      <div class="form-group">
+        <label>Issue Type:</label>
+        <select [(ngModel)]="newTicket.issueType" name="issueType" required>
+          <option value="Late Delivery">Late Delivery</option>
+          <option value="Wrong Order">Wrong Order</option>
+          <option value="Refund Issue">Refund Issue</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
+    
+      <div class="form-group">
+        <label>Description:</label>
+        <textarea [(ngModel)]="newTicket.description" name="description" required></textarea>
+      </div>
+    
+      <button type="submit" class="btn-submit">Submit Ticket</button>
+    </form>
+    
+  
+    <!-- Existing Tickets -->
+    <h3>📋 Existing Tickets</h3>
+    <table class="ticket-table">
+      <thead>
+        <tr>
+          <th>ID</th>
+          <th>Customer</th>
+          <th>Issue</th>
+          <th>Description</th>
+          <th>Status</th>
+          <th>Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let ticket of tickets">
+          <td>{{ ticket.ticketId }}</td>
+          <td>{{ ticket.customerName }}</td>
+          <td>{{ ticket.issueType }}</td>
+          <td>{{ ticket.description }}</td>
+          <td>
+            <select [(ngModel)]="ticket.status" (change)="updateStatus(ticket.ticketId, ticket.status)">
+              <option *ngFor="let status of statusOptions" [value]="status">{{ status }}</option>
+            </select>
+          </td>
+          <td>
+            <!-- <button (click)="updateStatus(ticket.ticketId, 'RESOLVED')" class="btn-resolve">✅ Resolve</button> -->
+            <button (click)="deleteTicket(ticket.ticketId)" class="btn-delete">Delete</button>
+  
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

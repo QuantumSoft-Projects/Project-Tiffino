@@ -1,0 +1,210 @@
+/* Navbar styling */
+/* .navbar {
+    background: transparent;
+    z-index: 1030;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+} */
+
+/* Navbar fixed at the top */
+/* .navbar.fixed-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+} */
+
+/* Ensure content does not overlap with fixed navbar */
+/* body {
+    padding-top: 80px;
+} */
+
+/* Change navbar background on scroll */
+.navbar.scrolled {
+    background: orange !important;
+}
+
+/* Navbar links styling */
+.navbar .nav-link {
+    color: #000;
+    font-weight: 500;
+    font-size: 1.2rem;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    padding: 10px 15px;
+}
+
+.navbar .nav-link:hover,
+.navbar .nav-link.active {
+    color: #100000;
+}
+
+/* Navbar dropdown menu */
+.navbar .dropdown-menu {
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+/* Dropdown item styling */
+.navbar .dropdown-item {
+    color: #000;
+    font-size: 1.1rem;
+    padding: 10px 15px;
+}
+
+.navbar .dropdown-item:hover {
+    background-color: #575a01;
+}
+
+/* Navbar brand logo */
+.navbar-brand img {
+    height: 100px;
+    width: auto;
+}
+
+/* India flag symbol */
+.india-symbol img {
+    width: 40px;
+    height: 40px;
+    margin-left: 15px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid white;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+/* Cart Icon */
+.cart-icon {
+    position: relative;
+    font-size: 1.5rem;
+    color: #000;
+    margin-left: 15px;
+    transition: color 0.3s;
+}
+
+.cart-icon:hover {
+    color: orange;
+}
+
+/* Cart Badge (Item Count) */
+.cart-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background: red;
+    color: white;
+    font-size: 0.8rem;
+    font-weight: bold;
+    border-radius: 50%;
+    padding: 2px 6px;
+}
+
+.user-info {
+    display: flex;
+    align-items: center;
+    margin-right: 15px;
+  }
+  
+  .profile-pic {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    margin-right: 8px;
+  }
+  
+  .dropdown-menu {
+    min-width: 200px;
+  }
+  
+  
+
+/* ================== RESPONSIVE DESIGN ================== */
+
+/* Tablet Screens (max-width: 1024px) */
+@media (max-width: 1024px) {
+    .navbar .nav-link {
+        font-size: 1.1rem;
+        padding: 8px 12px;
+    }
+
+    .navbar-brand img {
+        height: 80px;
+    }
+
+    .india-symbol img {
+        width: 35px;
+        height: 35px;
+    }
+
+    .cart-icon {
+        font-size: 1.3rem;
+    }
+
+    .cart-badge {
+        font-size: 0.7rem;
+        padding: 1px 5px;
+    }
+}
+
+/* Mobile Screens (max-width: 768px) */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 10px;
+    }
+
+    .navbar .nav-link {
+        font-size: 1rem;
+        padding: 8px 10px;
+        display: block;
+        text-align: center;
+    }
+
+    .navbar .dropdown-menu {
+        text-align: center;
+    }
+
+    .navbar-brand img {
+        height: 70px;
+    }
+
+    .india-symbol img {
+        width: 30px;
+        height: 30px;
+        margin-left: 10px;
+    }
+
+    .cart-icon {
+        font-size: 1.2rem;
+    }
+
+    .cart-badge {
+        font-size: 0.7rem;
+        padding: 1px 4px;
+    }
+}
+
+/* Small Mobile Screens (max-width: 480px) */
+@media (max-width: 480px) {
+    .navbar .nav-link {
+        font-size: 0.9rem;
+        padding: 6px 8px;
+    }
+
+    .navbar-brand img {
+        height: 60px;
+    }
+
+    .india-symbol img {
+        width: 25px;
+        height: 25px;
+    }
+
+    .cart-icon {
+        font-size: 1rem;
+        margin-left: 10px;
+    }
+
+    .cart-badge {
+        font-size: 0.6rem;
+        padding: 1px 3px;
+    }
+}

@@ -1,0 +1,61 @@
+<nav class="navbar navbar-expand-lg fixed-top" [ngClass]="{ 'scrolled': isScrolled }">
+      <div class="container">
+        <a class="navbar-brand" (click)="navigateTo('/')">
+          <img src="assets/img/tiffino_bg.png" alt="Tiffino" height="80" />
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+    
+        <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item"><a class="nav-link" (click)="navigateTo('/')">Home</a></li>
+            <li class="nav-item"><a class="nav-link" (click)="navigateTo('/contact')">Contact</a></li>
+    
+            <!-- Show Login/Signup if NOT logged in -->
+            
+              <li class="nav-item"><a class="nav-link" (click)="navigateTo('/login')">Login</a></li>
+              <li class="nav-item"><a class="nav-link" (click)="navigateTo('/signup')">Signup</a></li>
+            
+    
+              <li class="nav-item"><a class="nav-link" (click)="navigateTo('/super-admin-login')">Super-Admin</a></li>
+              <li class="nav-item"><a class="nav-link" (click)="navigateTo('/admin-login')">Admin</a></li>
+
+              <li class="nav-item">
+                <a class="nav-link cart-icon" (click)="navigateTo('/wishlist')">
+                  <i class="fas fa-heart text-xl text-red-500"></i>
+                  <span class="cart-badge">{{ wishlistItemCount }}</span>
+                </a>
+              </li>
+              
+              <li class="nav-item">
+                <a class="nav-link cart-icon" (click)="navigateTo('/cart')">
+                  <i class="fas fa-shopping-cart"></i>
+                  <span class="cart-badge">{{ cartItemCount }}</span>
+                </a>
+              </li> 
+       
+    
+            <!-- Show User Profile and Logout if logged in -->
+            <!-- <ng-container *ngIf="isLoggedIn">
+              <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle" id="profileDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                  <img [src]="userProfile?.profilePicture || 'assets/img/default-user.png'" class="profile-pic" />
+                  {{ userProfile?.name }}
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                  <li><a class="dropdown-item" (click)="navigateTo('/profile')">View Profile</a></li>
+                  <li><a class="dropdown-item" (click)="navigateTo('/orders')">My Orders</a></li>
+                  <li><a class="dropdown-item" (click)="navigateTo('/settings')">Settings</a></li>
+                  <li><hr class="dropdown-divider"></li>
+                  <li><a class="dropdown-item text-danger" (click)="logout()">Logout</a></li>
+                </ul>
+              </li>
+            </ng-container> -->
+            
+                
+          </ul>
+        </div>
+      </div>
+    </nav>
+    

@@ -1,0 +1,86 @@
+.ticket-container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    border-radius: 10px;
+    background: #fff;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h2, h3 {
+    text-align: center;
+  }
+  
+  .success-message, .error-message {
+    text-align: center;
+    font-weight: bold;
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+  
+  .success-message {
+    color: green;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .ticket-form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+    background: #f9f9f9;
+    border-radius: 8px;
+  }
+  
+  .form-group {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  input, select, textarea {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    padding: 8px 12px;
+    border: none;
+    cursor: pointer;
+  }
+  
+  .btn-submit {
+    background-color: #28a745;
+    color: white;
+  }
+  
+  .btn-resolve {
+    background-color: #007bff;
+    color: white;
+    margin-right: 5px;
+  }
+  
+  .btn-delete {
+    background-color: #dc3545;
+    color: white;
+  }
+  
+  .ticket-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  
+  .ticket-table th, .ticket-table td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .ticket-table th {
+    background-color: #f4f4f4;
+  }
+  

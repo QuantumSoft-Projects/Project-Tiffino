@@ -1,0 +1,30 @@
+<div class="hero-section position-relative text-white text-center">
+  <div class="overlay"></div>
+  <div class="container py-5">
+    <h2 class="display-4 fw-bold">Experience Authentic Home-Style Meals</h2>
+    <h4 class="lead">Delivered fresh to your doorstep, bringing you flavors from every corner of India.</h4>
+    <div class="search-bar mt-4">
+      <form class="d-flex justify-content-center">
+        <input type="text" class="form-control w-25 me-2" placeholder="Dishes/Cuisines" />
+        <select class="form-select w-25 me-2">
+          <option selected disabled>Select Location</option>
+          <option value="Delhi">Delhi</option>
+          <option value="Mumbai">Mumbai</option>
+          <option value="Chennai">Chennai</option>
+          <option value="Kolkata">Kolkata</option>
+          <option value="Bangalore">Bangalore</option>
+        </select>
+        <button class="btn btn-orange">Search</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="floating-images-container">
+    <div class="floating-images">
+      <div *ngFor="let thali of thalis" class="thali" (click)="addToCart(thali)">
+        <img [src]="thali.image" [alt]="thali.name">
+        <span class="thali-name">{{ thali.name }}</span>
+      </div>
+    </div>
+  </div>
+</div>

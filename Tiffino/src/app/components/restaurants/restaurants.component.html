@@ -1,0 +1,61 @@
+<div class="container">
+  <!-- Left Sidebar (Restaurants) -->
+  <nav class="restaurants">
+    <input type="text" [(ngModel)]="searchQuery" (input)="applyFilters()" placeholder="Search for restaurants..." class="search-box"> <br>
+<br> <br>
+    <div class="filters">
+      <!-- Regions -->
+ 
+      <div class="filter">
+        <h4 (click)="toggleDropdown('regions')">Regions</h4>
+        <div *ngIf="activeDropdown === 'regions'" class="dropdown">
+          <div *ngFor="let region of getCategoryItems('regions')" (click)="selectFilter('region', region)" class="dropdown-item">
+            {{ region }}
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Ratings -->
+      <div class="filter">
+        <h4 (click)="toggleDropdown('ratings')">Ratings</h4>
+        <div *ngIf="activeDropdown === 'ratings'" class="dropdown">
+          <div *ngFor="let rating of getCategoryItems('ratings')" (click)="selectFilter('rating', rating)" class="dropdown-item">
+            ⭐ {{ rating }}
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Delivery Time -->
+      <div class="filter">
+        <h4 (click)="toggleDropdown('deliveryTime')">Delivery Time</h4>
+        <div *ngIf="activeDropdown === 'deliveryTime'" class="dropdown">
+          <div *ngFor="let time of getCategoryItems('deliveryTime')" (click)="selectFilter('deliveryTime', time)" class="dropdown-item">
+            {{ time }}
+          </div>
+        </div>
+      </div>
+ 
+      <!-- Cuisines -->
+      <div class="filter">
+        <h4 (click)="toggleDropdown('cuisines')">Cuisines</h4>
+        <div *ngIf="activeDropdown === 'cuisines'" class="dropdown">
+          <div *ngFor="let cuisine of getCategoryItems('cuisines')" (click)="selectFilter('cuisine', cuisine)" class="dropdown-item">
+            {{ cuisine }}
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+ 
+  <!-- Right Side (Restaurant Cards) -->
+  <div class="restaurant-list">
+    <div *ngFor="let restaurant of filteredRestaurants" class="restaurant-card">
+      <img [src]="restaurant.image" [alt]="restaurant.name">
+      <h3>{{ restaurant.name }}</h3>
+      <p>Price: ₹{{ restaurant.price }} | {{ restaurant.cuisine }} </p>
+      <p> {{ restaurant.region }} | Rating: ⭐ {{ restaurant.rating }} </p>
+      <p> Delivery: {{ restaurant.deliveryTime }}</p>
+    </div>
+  </div>
+</div>
+ 

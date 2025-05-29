@@ -1,0 +1,137 @@
+/* Ensure full height for the body */
+html, body {
+  height: 100vh;
+  margin: 0;
+  padding: 0;
+  background: url('/assets/img/login background.jpg') no-repeat center center fixed;
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+ 
+ 
+/* Centering the Login Container */
+.login-container {
+  background: white;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+ 
+/* Headings */
+h2 {
+  color: #1d3d77;
+  font-size: 24px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  text-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+ 
+/* Input Fields */
+.input-group {
+  width: 100%;
+  margin-bottom: 15px;
+  text-align: left;
+}
+ 
+.input-group label {
+  color: #1d3d77;
+  font-weight: bold;
+  font-size: 14px;
+}
+ 
+.input-group input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #1d3d77;
+  border-radius: 5px;
+  font-size: 14px;
+  outline: none;
+  transition: 0.3s;
+}
+ 
+.input-group input:focus {
+  border-color: #0056b3;
+  box-shadow: 0 0 10px rgba(0, 86, 179, 0.5);
+}
+ 
+/* Login Button */
+.login-btn {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  background: linear-gradient(135deg, #ff8c00, #ff0080);
+  color: white;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+ 
+.login-btn:hover {
+  background: linear-gradient(135deg, #ff0080, #ff8c00);
+  transform: scale(1.05);
+}
+ 
+/* Forgot Password Section */
+.forgot-password, .back-to-login {
+  text-align: center;
+  width: 100%;
+  margin-top: 8px;
+}
+ 
+.forgot-password a, .back-to-login a {
+  color: #0056b3;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: bold;
+  transition: all 0.3s ease-in-out;
+}
+ 
+.forgot-password a:hover, .back-to-login a:hover {
+  color: #007bff;
+  transform: scale(1.05);
+}
+ 
+/* Close Button */
+.close-btn {
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: 0.3s ease;
+  background: none;
+  border: none;
+}
+ 
+.close-btn:hover {
+  color: #ff0000;
+  transform: scale(1.1);
+}
+ 
+/* Responsive Design */
+@media (max-width: 768px) {
+  .login-container {
+    width: 90%;
+  }
+}
+ 
+.hidden {
+  display: none !important;
+}
+ 
+ 

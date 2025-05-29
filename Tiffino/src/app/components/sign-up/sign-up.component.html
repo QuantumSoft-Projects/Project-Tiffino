@@ -1,0 +1,79 @@
+<body>
+  
+
+<div class="signup-container d-flex align-items-center justify-content-center min-vh-100">
+  <div class="card signup-card shadow-lg rounded-3 animate__animated animate__fadeIn">
+    <a href="/"><button type="button" class="btn-close position-absolute top-0 end-0 m-2" aria-label="Close"></button></a>
+
+ 
+    <!-- Left Side (Image) -->
+    <div class="left-side">
+      <img src="assets/img/sign2.png" alt="Sign Up" class="signup-image animate__animated animate__zoomIn" />
+    </div>
+ 
+    <!-- Right Side (Form) -->
+    <div class="right-side p-4">
+      <h2 class="text-center mb-4 animate__animated animate__fadeInDown">Create an Account</h2>
+ 
+      <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+ 
+        <!-- Phone Number -->
+        <div class="mb-3">
+          <label for="phoneNumber" class="form-label">Phone Number</label>
+          <input type="text" id="phoneNumber" class="form-control" formControlName="phoneNumber"
+            placeholder="Enter your phone number" [ngClass]="{ 'is-invalid': submitted && f['phoneNumber'].errors }" />
+          <div class="invalid-feedback" *ngIf="submitted && f['phoneNumber'].errors">
+            <small *ngIf="f['phoneNumber'].errors?.['required']">Phone number is required.</small>
+            <small *ngIf="f['phoneNumber'].errors?.['pattern']">Enter a valid 10-digit phone number.</small>
+          </div>
+        </div>
+ 
+        <!-- Email -->
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input type="email" id="email" class="form-control" formControlName="email" placeholder="Enter your email"
+            [ngClass]="{ 'is-invalid': submitted && f['email'].errors }" />
+          <div class="invalid-feedback" *ngIf="submitted && f['email'].errors">
+            <small *ngIf="f['email'].errors?.['required']">Email is required.</small>
+            <small *ngIf="f['email'].errors?.['email']">Invalid email address.</small>
+          </div>
+        </div>
+ 
+        <!-- Password -->
+        <div class="mb-3">
+          <label for="password" class="form-label">Password</label>
+          <input type="password" id="password" class="form-control" formControlName="password"
+            placeholder="Enter your password" [ngClass]="{ 'is-invalid': submitted && f['password'].errors }" />
+          <div class="invalid-feedback" *ngIf="submitted && f['password'].errors">
+            <small *ngIf="f['password'].errors?.['required']">Password is required.</small>
+            <small *ngIf="f['password'].errors?.['minlength']">Must be at least 6 characters.</small>
+          </div>
+        </div>
+ 
+        <!-- Confirm Password -->
+        <div class="mb-3">
+          <label for="confirmPassword" class="form-label">Confirm Password</label>
+          <input type="password" id="confirmPassword" class="form-control" formControlName="confirmPassword"
+            placeholder="Re-enter your password"
+            [ngClass]="{ 'is-invalid': submitted && f['confirmPassword'].errors }" />
+          <div class="invalid-feedback" *ngIf="submitted && f['confirmPassword'].errors">
+            <small *ngIf="f['confirmPassword'].errors?.['required']">Confirmation is required.</small>
+            <small *ngIf="f['confirmPassword'].errors?.['passwordMismatch']">Passwords do not match.</small>
+          </div>
+        </div>
+ 
+        <!-- Sign Up Button -->
+        <div class="d-grid">
+          <button type="submit" class="btn btn-primary animate__animated animate__pulse animate__infinite">Sign Up</button>
+        </div>
+ 
+        <!-- Already Have an Account -->
+        <div class="text-center mt-3">
+          <small>Already have an account? <a href="/login" class="text-decoration-none">Log In</a></small>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>
+ 
+</body>

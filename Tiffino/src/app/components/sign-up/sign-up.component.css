@@ -1,0 +1,117 @@
+@import 'https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css';
+ 
+body {
+  background: url('/assets/img/login background2.jpg') no-repeat center center fixed;
+  background-size: cover;
+ 
+ 
+}
+.signup-container {
+  /* background: linear-gradient(to right, #02dec8, #edb07e); */
+  padding: 2rem;
+}
+ 
+.signup-card {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: row;
+  border-radius: 10px;
+  overflow: hidden;
+  max-width: 1200px;
+  width: 70%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+ 
+.left-side {
+  flex: 1;
+  /* background: #ff6a00; */
+  /* display: flex; */
+  /* align-items: center; */
+  /* justify-content: center; */
+  /* padding: 2rem;
+  height: 100%; */
+}
+ 
+.signup-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* Ensures the image fills the container */
+}
+ 
+ 
+.right-side {
+  flex: 1;
+  padding: 2rem;
+  /* background: linear-gradient(to right, #02dec8, #edb07e); */
+  background: linear-gradient(to right, orange, gold);
+ 
+}
+ 
+h2 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #333;
+}
+ 
+.form-label {
+  font-weight: 500;
+  color: #555;
+}
+ 
+.form-control {
+  border-radius: 5px;
+  transition: box-shadow 0.3s, transform 0.2s;
+}
+ 
+.form-control:focus {
+  box-shadow: 0 0 10px rgba(255, 106, 0, 0.5);
+  transform: scale(1.02);
+}
+ 
+.btn-primary {
+  background-color: #ff6a00;
+  border: none;
+  transition: transform 0.3s, background-color 0.3s;
+}
+ 
+.btn-primary:hover {
+  background-color: #ee0979;
+  transform: scale(1.05);
+}
+ 
+.text-decoration-none {
+  color: #ff6a00;
+}
+ 
+.text-decoration-none:hover {
+  text-decoration: underline;
+}
+ 
+@media (max-width: 768px) {
+  .signup-card {
+    flex-direction: column;
+    max-width: 90%;
+  }
+ 
+  .left-side {
+    padding: 1rem;
+  }
+ 
+  .signup-image {
+    width: 60%;
+  }
+}
+ 
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+ 
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+ 

@@ -1,0 +1,47 @@
+h2 {
+    color: #ff5722;
+  }
+  
+  form {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 400px;
+  }
+  
+  input, select {
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+  }
+  
+  button {
+    background-color: #ff5722;
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+  }
+  
+  button:disabled {
+    background-color: gray;
+    cursor: not-allowed;
+  }
+  
+  button:hover {
+    background-color: #e64a19;
+  }
+
+  label {
+    display: block;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  select, input {
+    width: 100%;
+    padding: 8px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+  }
+  

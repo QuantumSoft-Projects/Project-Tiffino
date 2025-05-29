@@ -1,0 +1,72 @@
+
+<div class="meal-plan-container">
+    <h2>Add New Meal Plan</h2>
+  
+    <form [formGroup]="mealPlanForm" (ngSubmit)="submitMealPlan()">
+  
+      <!-- Meal Type Dropdown -->
+      <div class="form-group">
+        <label for="mealType">Meal Type:</label>
+        <select id="mealType" formControlName="name" required>
+          <option value="" disabled selected>Select Meal Type</option>
+          <option value="Breakfast">Breakfast</option>
+          <option value="Lunch">Lunch</option>
+          <option value="Dinner">Dinner</option>
+        </select>
+        <div class="error" *ngIf="mealPlanForm.get('name')?.invalid && mealPlanForm.get('name')?.touched">
+          Please select a meal type.
+        </div>
+      </div>
+  
+      <!-- Description -->
+      <div class="form-group">
+        <label for="description">Description:</label>
+        <textarea id="description" formControlName="description" required></textarea>
+        <div class="error" *ngIf="mealPlanForm.get('description')?.invalid && mealPlanForm.get('description')?.touched">
+          Description is required.
+        </div>
+      </div>
+  
+      <!-- Price -->
+      <div class="form-group">
+        <label for="price">Price:</label>
+        <input id="price" formControlName="price" type="number" required min="0" />
+        <div class="error" *ngIf="mealPlanForm.get('price')?.invalid && mealPlanForm.get('price')?.touched">
+          Price must be a positive number.
+        </div>
+      </div>
+  
+      <!-- Restaurant Dropdown -->
+      <div class="form-group">
+        <label for="restaurantId">Restaurant:</label>
+        <select id="restaurantId" formControlName="restaurantId" required>
+          <option value="" disabled selected>Select Restaurant</option>
+          <option *ngFor="let restaurant of restaurants" [value]="restaurant.id">
+            {{ restaurant.name }}
+          </option>
+        </select>
+        <div class="error" *ngIf="mealPlanForm.get('restaurantId')?.invalid && mealPlanForm.get('restaurantId')?.touched">
+          Please select a restaurant.
+        </div>
+      </div>
+  
+      <!-- Region Dropdown -->
+      <div class="form-group">
+        <label for="regionId">Region:</label>
+        <select id="regionId" formControlName="regionId" required>
+          <option value="" disabled selected>Select Region</option>
+          <option *ngFor="let region of regions" [value]="region.id">
+            {{ region.name }}
+          </option>
+        </select>
+        <div class="error" *ngIf="mealPlanForm.get('regionId')?.invalid && mealPlanForm.get('regionId')?.touched">
+          Please select a region.
+        </div>
+      </div>
+  
+      <!-- Submit Button -->
+      <button type="submit" [disabled]="mealPlanForm.invalid">Add Meal Plan</button>
+  
+    </form>
+  </div>
+  

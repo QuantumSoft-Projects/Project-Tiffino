@@ -1,0 +1,56 @@
+<div class="cart-container">
+  <h2 class="cart-title">Your Cart <i class="bi bi-cart"></i></h2>
+ 
+  <div *ngIf="cartItems.length > 0; else emptyCart">
+    <div *ngFor="let item of cartItems" class="cart-item">
+      <div class="item-details">
+        <img [src]="item.imageUrl" alt="{{ item.name }}" class="item-image">
+        <div class="item-info">
+          <h4>{{ item.name }}</h4>
+          <p class="price">Price: ₹{{ item.price }}</p>
+        </div>
+      </div>
+     
+      <div class="quantity-controls">
+        <button class="qty-btn" (click)="decreaseQuantity(item)">➖</button>
+        <span class="qty">{{ item.quantity }}</span>
+        <button class="qty-btn" (click)="increaseQuantity(item)">➕</button>
+      </div>
+ 
+      <button class="remove-btn" (click)="removeItem(item.id)">
+        <i class="bi bi-trash3"></i>
+      </button>
+    </div>
+ 
+    <!-- Coupon Section -->
+    <div class="coupon-container">
+      <input type="text" [(ngModel)]="couponCode" placeholder="Enter Coupon Code" class="coupon-input" />
+      <button class="apply-btn" (click)="applyCoupon()">Apply Coupon</button>
+    </div>
+ 
+    <!-- Discount Info -->
+    <div *ngIf="discountAmount > 0" class="discount-info">
+      <p>Coupon Applied: <strong>{{ couponCode }}</strong></p>
+      <p>You saved: <strong>₹{{ discountAmount }}</strong></p>
+    </div>
+ 
+    <!-- Cart Footer -->
+    <div class="cart-footer">
+      <h3>Subtotal: ₹{{ totalAmount + discountAmount }}</h3>
+      <h3>Total: ₹{{ totalAmount }}</h3>
+      <button class="checkout-btn" (click)="checkout()">Proceed to Checkout</button>
+    </div>
+  </div>
+ 
+  <!-- Empty Cart Template -->
+  <ng-template #emptyCart>
+    <div class="empty-cart-container">
+      <i class="bi bi-cart-x empty-cart-icon"></i>
+      <h2>Your Cart Is Empty!</h2>
+      <p>Before proceeding to checkout, add some items to your cart.</p>
+      <button class="return-to-shop-btn" (click)="returnToShop()">Return To Shop</button>
+    </div>
+  </ng-template>
+</div>
+ 
+ 

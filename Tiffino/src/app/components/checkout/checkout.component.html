@@ -1,0 +1,81 @@
+<div class="checkout-container">
+  <h2>Checkout</h2>
+ 
+  <!-- Step Indicators -->
+  <div class="step-indicator">
+    <div [class.active]="step === 1">1. Address</div>
+    <div [class.active]="step === 2">2. Payment</div>
+    <div [class.active]="step === 3">3. Confirm Order</div>
+  </div>
+ 
+  <!-- Address Step -->
+  <div *ngIf="step === 1" class="checkout-form">
+    <h3>Enter Delivery Address</h3>
+    <input type="text" placeholder="Full Name" [(ngModel)]="address.fullName">
+    <input type="email" placeholder="Email" [(ngModel)]="address.email">
+    <input type="text" placeholder="Phone Number" [(ngModel)]="address.phoneNumber">
+    <input type="text" placeholder="Address Line 1" [(ngModel)]="address.addressLine1">
+    <input type="text" placeholder="City" [(ngModel)]="address.city">
+    <input type="text" placeholder="State" [(ngModel)]="address.state">
+    <input type="text" placeholder="Postal Code" [(ngModel)]="address.postalCode">
+    <button class="next-btn" (click)="nextStep()">Next <i class="fas fa-arrow-right"></i></button>
+
+  </div>
+ 
+  <!-- Payment Step -->
+  <div *ngIf="step === 2" class="checkout-form">
+    <h3>Select Payment Method</h3>
+    <label>
+      <input type="radio" name="payment" value="card" [(ngModel)]="selectedPaymentMethod"> Credit/Debit Card
+    </label>
+    <label>
+      <input type="radio" name="payment" value="upi" [(ngModel)]="selectedPaymentMethod"> UPI Payment
+    </label>
+ 
+    <div *ngIf="selectedPaymentMethod === 'card'">
+      <h3>Enter Card Details</h3>
+      <input type="text" placeholder="Card Number" [(ngModel)]="cardDetails.cardNumber">
+      <input type="text" placeholder="Card Holder Name" [(ngModel)]="cardDetails.cardHolder">
+      <input type="text" placeholder="Expiry Date" [(ngModel)]="cardDetails.expiryDate">
+      <input type="text" placeholder="CVV" [(ngModel)]="cardDetails.cvv">
+    </div>
+ 
+    <button class="back-btn" (click)="previousStep()"><i class="fas fa-arrow-left"></i> Back</button>
+    <button class="next-btn" (click)="nextStep()">Next <i class="fas fa-arrow-right"></i></button>
+  </div>
+ 
+  <!-- Confirm Order Step -->
+  <div *ngIf="step === 3" class="checkout-form">
+    <h3>Review Your Order</h3>
+ 
+    <div class="order-review">
+      <p><strong>Total Items:</strong> {{ orderReview.totalItems }}</p>
+      <p><strong>Subtotal:</strong> ₹{{ orderReview.totalGrossValue }}</p>
+      <p><strong>Discount:</strong> - ₹{{ orderReview.totalDiscount }}</p>
+      <p><strong>Delivery Charge:</strong> ₹{{ deliveryCharge }}</p>
+      <p><strong>GST (18%):</strong> ₹{{ gst }}</p>
+      <p><strong>Platform Fee (5%):</strong> ₹{{ platformCharge }}</p>
+      <p><strong>Final Amount:</strong> ₹{{ orderReview.finalAmount }}</p>
+    </div>
+ 
+   
+ 
+    <button class="back-btn" (click)="previousStep()"><i class="fas fa-arrow-left"></i> Back</button>
+    <button class="place-order-btn" (click)="placeOrder()"><i class="fas fa-check-circle"></i> Place Order</button>
+  </div>
+ 
+  <!-- Thank You Section (Visible after order placement) -->
+  <div *ngIf="step === 4" class="confirmation-container">
+    <h2>Thank You!</h2>
+    <p>Your order <strong>#{{ orderId }}</strong> has been processed.</p>
+    <p>
+      We are getting started on your order, and you will receive an order confirmation email shortly
+      to <strong>{{ userEmail }}</strong>.
+    </p>
+    <button class="return-btn" (click)="returnToShop()"><i class="fas fa-store"></i> Return to Shop</button>
+
+  </div>
+</div>
+ 
+ 
+ 
